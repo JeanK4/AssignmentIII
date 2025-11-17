@@ -1,54 +1,54 @@
 
 ================================================================================
-DISK SCHEDULING ALGORITHMS - VISUALIZATION SUMMARY
+ALGORITMOS DE PLANIFICACION DE DISCO - RESUMEN DE VISUALIZACION
 ================================================================================
 
-Configuration:
-  - Total Cylinders: 5,000 (0 to 4,999)
-  - Number of Requests: 1,000
-  - Initial Head Position: 2500
+Configuracion:
+  - Total de Cilindros: 5,000 (0 a 4,999)
+  - Numero de Solicitudes: 1,000
+  - Posicion Inicial del Cabezal: 2500
 
-Request Statistics:
-  - Mean: 2385.11
-  - Median: 2316.50
-  - Std Dev: 1383.81
-  - Min: 1
-  - Max: 4994
-
-================================================================================
-ALGORITHM PERFORMANCE COMPARISON
-================================================================================
-
-1. FCFS (First-Come, First-Served):
-   - Total Head Movement: 1,611,409 cylinders
-   - Average per Request: 1611.41 cylinders
-   - Baseline Algorithm
-
-2. SCAN (Elevator Algorithm):
-   - Total Head Movement: 7,497 cylinders
-   - Average per Request: 7.50 cylinders
-   - Improvement over FCFS: 99.53%
-   - Reduction: 1,603,912 cylinders
-
-3. C-SCAN (Circular SCAN):
-   - Total Head Movement: 9,996 cylinders
-   - Average per Request: 10.00 cylinders
-   - Improvement over FCFS: 99.38%
-   - Reduction: 1,601,413 cylinders
+Estadisticas de Solicitudes:
+  - Media: 2385.11
+  - Mediana: 2316.50
+  - Desviacion Estandar: 1383.81
+  - Minimo: 1
+  - Maximo: 4994
 
 ================================================================================
-RANKING (Best to Worst by Total Movement)
+COMPARACION DE RENDIMIENTO DE ALGORITMOS
 ================================================================================
-1. SCAN       -      7,497 cylinders
-2. C-SCAN     -      9,996 cylinders
-3. FCFS       -  1,611,409 cylinders
+
+1. FCFS (Primero en Llegar, Primero en Ser Atendido):
+   - Movimiento Total del Cabezal: 1,611,409 cilindros
+   - Promedio por Solicitud: 1611.41 cilindros
+   - Algoritmo Base
+
+2. SCAN (Algoritmo del Elevador):
+   - Movimiento Total del Cabezal: 7,497 cilindros
+   - Promedio por Solicitud: 7.50 cilindros
+   - Mejora sobre FCFS: 99.53%
+   - Reduccion: 1,603,912 cilindros
+
+3. C-SCAN (SCAN Circular):
+   - Movimiento Total del Cabezal: 9,996 cilindros
+   - Promedio por Solicitud: 10.00 cilindros
+   - Mejora sobre FCFS: 99.38%
+   - Reduccion: 1,601,413 cilindros
 
 ================================================================================
-Generated Visualizations:
-  1. head_movement_over_time.png - Shows head position changes
-  2. cumulative_movement.png - Cumulative movement comparison
-  3. performance_comparison.png - Bar charts of performance
-  4. efficiency_improvement.png - Efficiency gains over FCFS
-  5. request_distribution.png - Distribution of requests
-  6. seek_distance_distribution.png - Seek distance patterns
+RANKING (Mejor a Peor por Movimiento Total)
+================================================================================
+1. SCAN       -      7,497 cilindros
+2. C-SCAN     -      9,996 cilindros
+3. FCFS       -  1,611,409 cilindros
+
+================================================================================
+Visualizaciones Generadas:
+  1. head_movement_over_time.png - Muestra cambios de posicion del cabezal
+  2. cumulative_movement.png - Comparacion de movimiento acumulado
+  3. performance_comparison.png - Graficos de barras de rendimiento
+  4. efficiency_improvement.png - Ganancias de eficiencia sobre FCFS
+  5. request_distribution.png - Distribucion de solicitudes
+  6. seek_distance_distribution.png - Patrones de distancia de busqueda
 ================================================================================

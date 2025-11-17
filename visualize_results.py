@@ -93,7 +93,7 @@ def plot_head_movement_over_time(fcfs_seq: List[int], scan_seq: List[int],
     plt.tight_layout()
     output_path = os.path.join(output_dir, 'head_movement_over_time.png')
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
+    print(f"Guardado: {output_path}")
     plt.close()
 
 
@@ -138,7 +138,7 @@ def plot_cumulative_movement(fcfs_seq: List[int], scan_seq: List[int],
     plt.tight_layout()
     output_path = os.path.join(output_dir, 'cumulative_movement.png')
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
+    print(f"Guardado: {output_path}")
     plt.close()
 
 
@@ -197,7 +197,7 @@ def plot_performance_comparison(fcfs_seq: List[int], scan_seq: List[int],
     plt.tight_layout()
     output_path = os.path.join(output_dir, 'performance_comparison.png')
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
+    print(f"Guardado: {output_path}")
     plt.close()
 
 
@@ -234,7 +234,7 @@ def plot_efficiency_metrics(fcfs_seq: List[int], scan_seq: List[int],
     plt.tight_layout()
     output_path = os.path.join(output_dir, 'efficiency_improvement.png')
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
+    print(f"Guardado: {output_path}")
     plt.close()
 
 
@@ -264,7 +264,7 @@ def plot_request_distribution(requests: List[int], output_dir: str = "."):
     plt.tight_layout()
     output_path = os.path.join(output_dir, 'request_distribution.png')
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
+    print(f"Guardado: {output_path}")
     plt.close()
 
 
@@ -310,7 +310,7 @@ def plot_seek_distance_distribution(fcfs_seq: List[int], scan_seq: List[int],
     plt.tight_layout()
     output_path = os.path.join(output_dir, 'seek_distance_distribution.png')
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
+    print(f"Guardado: {output_path}")
     plt.close()
 
 
@@ -328,44 +328,44 @@ def create_summary_report(initial_pos: int, requests: List[int],
     
     report = f"""
 {'='*80}
-DISK SCHEDULING ALGORITHMS - VISUALIZATION SUMMARY
+ALGORITMOS DE PLANIFICACION DE DISCO - RESUMEN DE VISUALIZACION
 {'='*80}
 
-Configuration:
-  - Total Cylinders: 5,000 (0 to 4,999)
-  - Number of Requests: {num_requests:,}
-  - Initial Head Position: {initial_pos}
+Configuracion:
+  - Total de Cilindros: 5,000 (0 a 4,999)
+  - Numero de Solicitudes: {num_requests:,}
+  - Posicion Inicial del Cabezal: {initial_pos}
 
-Request Statistics:
-  - Mean: {np.mean(requests):.2f}
-  - Median: {np.median(requests):.2f}
-  - Std Dev: {np.std(requests):.2f}
-  - Min: {min(requests)}
-  - Max: {max(requests)}
-
-{'='*80}
-ALGORITHM PERFORMANCE COMPARISON
-{'='*80}
-
-1. FCFS (First-Come, First-Served):
-   - Total Head Movement: {fcfs_total:,} cylinders
-   - Average per Request: {fcfs_total/num_requests:.2f} cylinders
-   - Baseline Algorithm
-
-2. SCAN (Elevator Algorithm):
-   - Total Head Movement: {scan_total:,} cylinders
-   - Average per Request: {scan_total/num_requests:.2f} cylinders
-   - Improvement over FCFS: {((fcfs_total-scan_total)/fcfs_total*100):.2f}%
-   - Reduction: {fcfs_total-scan_total:,} cylinders
-
-3. C-SCAN (Circular SCAN):
-   - Total Head Movement: {cscan_total:,} cylinders
-   - Average per Request: {cscan_total/num_requests:.2f} cylinders
-   - Improvement over FCFS: {((fcfs_total-cscan_total)/fcfs_total*100):.2f}%
-   - Reduction: {fcfs_total-cscan_total:,} cylinders
+Estadisticas de Solicitudes:
+  - Media: {np.mean(requests):.2f}
+  - Mediana: {np.median(requests):.2f}
+  - Desviacion Estandar: {np.std(requests):.2f}
+  - Minimo: {min(requests)}
+  - Maximo: {max(requests)}
 
 {'='*80}
-RANKING (Best to Worst by Total Movement)
+COMPARACION DE RENDIMIENTO DE ALGORITMOS
+{'='*80}
+
+1. FCFS (Primero en Llegar, Primero en Ser Atendido):
+   - Movimiento Total del Cabezal: {fcfs_total:,} cilindros
+   - Promedio por Solicitud: {fcfs_total/num_requests:.2f} cilindros
+   - Algoritmo Base
+
+2. SCAN (Algoritmo del Elevador):
+   - Movimiento Total del Cabezal: {scan_total:,} cilindros
+   - Promedio por Solicitud: {scan_total/num_requests:.2f} cilindros
+   - Mejora sobre FCFS: {((fcfs_total-scan_total)/fcfs_total*100):.2f}%
+   - Reduccion: {fcfs_total-scan_total:,} cilindros
+
+3. C-SCAN (SCAN Circular):
+   - Movimiento Total del Cabezal: {cscan_total:,} cilindros
+   - Promedio por Solicitud: {cscan_total/num_requests:.2f} cilindros
+   - Mejora sobre FCFS: {((fcfs_total-cscan_total)/fcfs_total*100):.2f}%
+   - Reduccion: {fcfs_total-cscan_total:,} cilindros
+
+{'='*80}
+RANKING (Mejor a Peor por Movimiento Total)
 {'='*80}
 """
     
@@ -377,16 +377,16 @@ RANKING (Best to Worst by Total Movement)
     results.sort(key=lambda x: x[1])
     
     for rank, (name, total) in enumerate(results, 1):
-        report += f"{rank}. {name:<10} - {total:>10,} cylinders\n"
+        report += f"{rank}. {name:<10} - {total:>10,} cilindros\n"
     
     report += "\n" + "="*80 + "\n"
-    report += "Generated Visualizations:\n"
-    report += "  1. head_movement_over_time.png - Shows head position changes\n"
-    report += "  2. cumulative_movement.png - Cumulative movement comparison\n"
-    report += "  3. performance_comparison.png - Bar charts of performance\n"
-    report += "  4. efficiency_improvement.png - Efficiency gains over FCFS\n"
-    report += "  5. request_distribution.png - Distribution of requests\n"
-    report += "  6. seek_distance_distribution.png - Seek distance patterns\n"
+    report += "Visualizaciones Generadas:\n"
+    report += "  1. head_movement_over_time.png - Muestra cambios de posicion del cabezal\n"
+    report += "  2. cumulative_movement.png - Comparacion de movimiento acumulado\n"
+    report += "  3. performance_comparison.png - Graficos de barras de rendimiento\n"
+    report += "  4. efficiency_improvement.png - Ganancias de eficiencia sobre FCFS\n"
+    report += "  5. request_distribution.png - Distribucion de solicitudes\n"
+    report += "  6. seek_distance_distribution.png - Patrones de distancia de busqueda\n"
     report += "="*80 + "\n"
     
     output_path = os.path.join(output_dir, 'visualization_summary.txt')
@@ -394,37 +394,37 @@ RANKING (Best to Worst by Total Movement)
         f.write(report)
     
     print(report)
-    print(f"\nSummary report saved to: {output_path}")
+    print(f"\nReporte de resumen guardado en: {output_path}")
 
 
 def main():
     """Main function to generate all visualizations."""
     
     print("="*80)
-    print("DISK SCHEDULING ALGORITHMS - DATA VISUALIZATION")
+    print("ALGORITMOS DE PLANIFICACION DE DISCO - VISUALIZACION DE DATOS")
     print("="*80)
     print()
     
     # Check if sequences file exists
     if not os.path.exists("sequences.txt"):
-        print("Error: sequences.txt not found!")
-        print("Please run disk_scheduler.py first to generate the data.")
+        print("Error: sequences.txt no encontrado!")
+        print("Por favor ejecuta disk_scheduler.exe primero para generar los datos.")
         return
     
     # Load data
-    print("Loading sequence data...")
+    print("Cargando datos de secuencia...")
     initial_pos, requests, fcfs_seq, scan_seq, cscan_seq = load_sequences()
-    print(f"Loaded {len(requests)} requests")
+    print(f"Cargados {len(requests)} solicitudes")
     print()
     
     # Create output directory for graphs
     output_dir = "visualizations"
     os.makedirs(output_dir, exist_ok=True)
-    print(f"Saving visualizations to: {output_dir}/")
+    print(f"Guardando visualizaciones en: {output_dir}/")
     print()
     
     # Generate all visualizations
-    print("Generating visualizations...")
+    print("Generando visualizaciones...")
     print("-" * 80)
     
     plot_head_movement_over_time(fcfs_seq, scan_seq, cscan_seq, output_dir)
@@ -442,7 +442,7 @@ def main():
     
     print()
     print("="*80)
-    print("All visualizations completed successfully!")
+    print("Todas las visualizaciones completadas exitosamente!")
     print("="*80)
 
 
