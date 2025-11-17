@@ -6,22 +6,28 @@ This script creates visualizations to compare the performance of
 FCFS, SCAN, and C-SCAN disk scheduling algorithms.
 """
 
+import subprocess
+import sys
+import os
+
+# Instalar dependencias automaticamente si no estan instaladas
+def install_dependencies():
+    required_packages = ['matplotlib', 'numpy']
+    for package in required_packages:
+        try:
+            __import__(package)
+        except ImportError:
+            print(f"Instalando {package}...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+install_dependencies()
+
 import matplotlib.pyplot as plt
 import numpy as np
 from typing import List, Tuple
-import os
 
 
 def load_sequences(filename: str = "sequences.txt") -> Tuple[int, List[int], List[int], List[int], List[int]]:
-    """
-    Load sequence data from file.
-    
-    Args:
-        filename: Path to the sequences file
-        
-    Returns:
-        Tuple of (initial_position, requests, fcfs_seq, scan_seq, cscan_seq)
-    """
     with open(filename, 'r') as f:
         lines = f.readlines()
     
