@@ -10,7 +10,6 @@ import subprocess
 import sys
 import os
 
-# Instalar dependencias automaticamente si no estan instaladas
 def install_dependencies():
     required_packages = ['matplotlib', 'numpy']
     for package in required_packages:
@@ -419,3 +418,4 @@ def main():
 
 
 main()
+
