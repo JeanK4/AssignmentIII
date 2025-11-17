@@ -35,15 +35,6 @@ def load_sequences(filename: str = "sequences.txt") -> Tuple[int, List[int], Lis
 
 
 def calculate_movements(sequence: List[int]) -> List[int]:
-    """
-    Calculate cumulative head movements from a sequence.
-    
-    Args:
-        sequence: List of cylinder positions
-        
-    Returns:
-        List of cumulative movements
-    """
     movements = [0]
     total = 0
     for i in range(1, len(sequence)):
@@ -55,9 +46,6 @@ def calculate_movements(sequence: List[int]) -> List[int]:
 
 def plot_head_movement_over_time(fcfs_seq: List[int], scan_seq: List[int], 
                                   cscan_seq: List[int], output_dir: str = "."):
-    """
-    Plot head position over time for all three algorithms.
-    """
     fig, axes = plt.subplots(3, 1, figsize=(14, 10))
     fig.suptitle('Disk Head Movement Over Time', fontsize=16, fontweight='bold')
     
@@ -99,9 +87,6 @@ def plot_head_movement_over_time(fcfs_seq: List[int], scan_seq: List[int],
 
 def plot_cumulative_movement(fcfs_seq: List[int], scan_seq: List[int], 
                              cscan_seq: List[int], output_dir: str = "."):
-    """
-    Plot cumulative head movement comparison.
-    """
     fcfs_movements = calculate_movements(fcfs_seq)
     scan_movements = calculate_movements(scan_seq)
     cscan_movements = calculate_movements(cscan_seq)
@@ -145,9 +130,6 @@ def plot_cumulative_movement(fcfs_seq: List[int], scan_seq: List[int],
 def plot_performance_comparison(fcfs_seq: List[int], scan_seq: List[int], 
                                 cscan_seq: List[int], num_requests: int, 
                                 output_dir: str = "."):
-    """
-    Create bar charts comparing algorithm performance.
-    """
     # Calculate total movements
     fcfs_total = sum(abs(fcfs_seq[i] - fcfs_seq[i-1]) for i in range(1, len(fcfs_seq)))
     scan_total = sum(abs(scan_seq[i] - scan_seq[i-1]) for i in range(1, len(scan_seq)))
@@ -203,9 +185,6 @@ def plot_performance_comparison(fcfs_seq: List[int], scan_seq: List[int],
 
 def plot_efficiency_metrics(fcfs_seq: List[int], scan_seq: List[int], 
                             cscan_seq: List[int], output_dir: str = "."):
-    """
-    Plot efficiency improvement percentages.
-    """
     fcfs_total = sum(abs(fcfs_seq[i] - fcfs_seq[i-1]) for i in range(1, len(fcfs_seq)))
     scan_total = sum(abs(scan_seq[i] - scan_seq[i-1]) for i in range(1, len(scan_seq)))
     cscan_total = sum(abs(cscan_seq[i] - cscan_seq[i-1]) for i in range(1, len(cscan_seq)))
@@ -239,9 +218,6 @@ def plot_efficiency_metrics(fcfs_seq: List[int], scan_seq: List[int],
 
 
 def plot_request_distribution(requests: List[int], output_dir: str = "."):
-    """
-    Plot the distribution of cylinder requests.
-    """
     plt.figure(figsize=(12, 6))
     
     plt.hist(requests, bins=50, color='purple', alpha=0.7, edgecolor='black')
@@ -270,9 +246,6 @@ def plot_request_distribution(requests: List[int], output_dir: str = "."):
 
 def plot_seek_distance_distribution(fcfs_seq: List[int], scan_seq: List[int], 
                                     cscan_seq: List[int], output_dir: str = "."):
-    """
-    Plot the distribution of seek distances for each algorithm.
-    """
     # Calculate seek distances
     fcfs_seeks = [abs(fcfs_seq[i] - fcfs_seq[i-1]) for i in range(1, len(fcfs_seq))]
     scan_seeks = [abs(scan_seq[i] - scan_seq[i-1]) for i in range(1, len(scan_seq))]
@@ -317,9 +290,6 @@ def plot_seek_distance_distribution(fcfs_seq: List[int], scan_seq: List[int],
 def create_summary_report(initial_pos: int, requests: List[int], 
                          fcfs_seq: List[int], scan_seq: List[int], 
                          cscan_seq: List[int], output_dir: str = "."):
-    """
-    Create a comprehensive summary report.
-    """
     fcfs_total = sum(abs(fcfs_seq[i] - fcfs_seq[i-1]) for i in range(1, len(fcfs_seq)))
     scan_total = sum(abs(scan_seq[i] - scan_seq[i-1]) for i in range(1, len(scan_seq)))
     cscan_total = sum(abs(cscan_seq[i] - cscan_seq[i-1]) for i in range(1, len(cscan_seq)))
@@ -397,9 +367,7 @@ RANKING (Mejor a Peor por Movimiento Total)
     print(f"\nReporte de resumen guardado en: {output_path}")
 
 
-def main():
-    """Main function to generate all visualizations."""
-    
+def main(): 
     print("="*80)
     print("ALGORITMOS DE PLANIFICACION DE DISCO - VISUALIZACION DE DATOS")
     print("="*80)
@@ -436,8 +404,6 @@ def main():
     
     print("-" * 80)
     print()
-    
-    # Create summary report
     create_summary_report(initial_pos, requests, fcfs_seq, scan_seq, cscan_seq, output_dir)
     
     print()
@@ -446,5 +412,4 @@ def main():
     print("="*80)
 
 
-if __name__ == "__main__":
-    main()
+main()
